@@ -9,7 +9,7 @@ public class FindNum2 {
 		for (int i = 0; i < number.length; i++) {
 			for (int j = 0; j < number2.length; j++) {
 				if (number[i] * number2[j] == 100) {
-					System.out.printf("The two numbers that gives 100 when multiplied are: %d and %d. ", number[i],
+					System.out.printf("The two numbers that will egiv 100 when multiplied are: %d and %d. ", number[i],
 							number2[j]);
 				}
 
