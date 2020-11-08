@@ -1,4 +1,4 @@
-package makingAdiffernce5;
+package com.yoc;
 
 import java.util.Scanner;
 

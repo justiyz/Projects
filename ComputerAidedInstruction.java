@@ -1,4 +1,4 @@
-package com.chapter6;
+package com.yoc;
 
 import java.security.SecureRandom;
 import java.util.Scanner;

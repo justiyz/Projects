@@ -1,4 +1,4 @@
-package com.diff;
+package com.yoc;
 
 import java.util.Scanner;
 
