@@ -6,35 +6,47 @@ public class TimeConversion {
 	private static String number[] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
 			"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
 			"nineteen", "twenty", "twenty one", "twenty two", "twenty three", "twenty four", "twenty five",
-			"twenty six", "twenty seven", "twenty eight", "twenty nine", "thirty" };
+			"twenty six", "twenty seven", "twenty eight", "twenty nine", "thirty", "thirty one", "thirty two",
+			"thirty three", "thirty four", "thirty five", "thirty six", "thirty seven", "thirty eight", "thirty nine",
+			"forty", "forty one", "forty two", "forty three", "forty four", "forty five", "forty six", "forty seven",
+			"forty eight", "forty nine", "fifty", "fifty one", "fifty two", "fifty three", "fifty four", "fifty five",
+			"fifty six", "fifty seven", "fifty eight", "fifty nine" };
 
-	static String minutesPastCurrentHour(int hours, int minutes) {
-
-		if (minutes == 1) {
-			timeInWords = String.format("one minute past %s", number[hours]);
-		} else {
-			timeInWords = String.format("The time is %s minutes past %s", number[minutes], number[hours]);
+	static String timeInWords(int hours, int minutes) {
+		if (hours > 23 || minutes > 59) {
+			throw new IllegalArgumentException("Enter a valid hour(s)/minutes(s)");
+		} else if (minutes > 0 && minutes < 10 && hours == 0) {
+			timeInWords = String.format("%s o' %s", number[12], number[minutes]);
+		} else if (minutes > 9 && hours == 0) {
+			timeInWords = String.format("%s %s", number[12], number[minutes]);
+		} else if (minutes > 9 && hours > 0) {
+			timeInWords = String.format("%s %s", number[hours], number[minutes]);
 		}
+//		System.out.println(timeInWords);
 		return timeInWords;
 	}
 
-	static String minutesToNextHour(int hours, int minutes) {
-		if (minutes > 30 && minutes < 59) {
-			timeInWords = String.format("%s minutes to %s", number[60 - minutes], number[(hours % 12) + 1]);
-		} else {
-			timeInWords = String.format("%s minute to %s", number[60 - minutes], number[(hours % 12) + 1]);
+	public static String o_clock(int hours, int minutes) {
+		if (minutes == 0 && hours == 0) {
+			timeInWords = String.format("%s o'clock", number[12]);
+		} else if (minutes == 0 && hours >= 0) {
+			timeInWords = String.format("%s o'clock", number[hours]);
 		}
-		return timeInWords;
-	}
-
-	static String o_Clock(int hours, int minutes) {
-		if (hours > 12 || minutes > 0) {
-			throw new IllegalArgumentException("This is a 12-hour clock. Enter a valid hour(s)/minutes(s)");
-		} else {
-			timeInWords = String.format("The time is %s o'Clock", number[hours]);
-		}
+//		System.out.println(timeInWords);
 		return timeInWords;
 
 	}
 
 }
+
+//package com.yoc;
+//
+//
+//
+//public class NumberInWords {
+//	
+//	
+//	
+//
+//	
+//}
